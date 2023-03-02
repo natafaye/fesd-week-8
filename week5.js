@@ -1,139 +1,58 @@
 
 
-// const email = {
-//     id: 0,
-//     author: "Antalie",
-//     message: "Hi!",
-//     read: false,
-//     markRead() {
-//         this.read = true
-//     }
-// }
-const email = makeEmailObject("Antalie", "Hi!")
-
-const anotherEmail = {
-    id: 27,
-    athor: "Antalie",
-    text: "Goobye!",
-    read: false,
-    markRead() {
-        this.read = true
-    }
-}
-
-const emailFromSue = new Email("Sue", "I'm ")
-
-
-// Basically a constructor
-function makeEmailObject(authorParam, messageParam) {
-    return {
-        id: 12,
-        author: authorParam,
-        message: messageParam
-    }
-}
-
-class Email {
-    constructor(authorParam, messageParam) {
-        this.id = 12
-        this.author = authorParam
-        this.message = messageParam
-        this.read = false
-    }
-
-    markRead() {
-        this.read = true
-    }
-}
-
-
-// CONSTRUCTING
-// {
-//     id: 12,
-//     author: whatever is in author param
-//     message: whatever is in the message param
-    // markRead() {
-    //     this.read = true
-    // }
-// }
-
-
-class VendingMachine {
-    constructor(items) {
-        this.items = items;
-        this.startingMoney = 0;
-        this.inventory = 20
-    }
-}
-
-
-
-
-
 class Animal {
-    constructor(type, name) {
-        this.type = type
-        this.name = name
+    constructor(name, type) { // name = "Fluffy"; type = "cat"
+        this.name = name;
+        this.type = type;
+    }
+
+    pet() {
+        alert("petting the animal!")
     }
 
     feed() {
-
+        alert("feeding the animal!")
     }
 }
 
-class Cat extends Animal {
-    constructor(name) {
-        super("cat", name)
-    }
+// in progress object
 
-    playWithLaser() {
+// make an object with a stamp (class)
+const fluffy = new Animal("Fluffy", "cat")
+const spot = new Animal("spot", "dog")
 
-    }
-}
-
-
-const fluffy = new Cat("Fluffy")
-
-
-
-
-
-
-class Button {
-    constructor() {
-
-    }
-
-    onClick() {
-
-    }
-}
-
-// CONSTRUCTING
-// {
-//     onClick() {
-
+// make an object by hand
+// const fluffy = {
+//     name: "Fluffy",
+//     type: "cat",
+//     pet() {
+//         alert("petting the animal!")
+//     },
+//     feed() {
+//         alert("feeding the animal!")
 //     }
 // }
 
-const myButton = {
-    onClick() {
+// const spot = {
+//     name: "Spot",
+//     type: "dog",
+//     pet() {
+//         alert("petting the animal!")
+//     },
+//     feed() {
+//         alert("feeding the animal!")
+//     }
+// }
 
+
+// Much more common to make pure property objects by hand
+[
+    {
+        name: "spot",
+        type: "dog"
+    },
+    {
+        name: "fluffy",
+        type: "cat"
     }
-}
-
-// const pets = [
-//     new Animal("cat", "Floofy"),
-//     new Animal("horse", "Horsey")
-// ]
-
-const pets = [
-    {
-        type: "cat",
-        name: "Floofy"
-    },
-    {
-        type: "horse",
-        name: "Horsey"
-    },
 ]
