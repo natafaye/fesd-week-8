@@ -1,83 +1,57 @@
 
-class RestrictedAnswerPrompt {
-    constructor(acceptableAnswers) {
-        this.acceptableAnswers = acceptableAnswers
+
+class User {
+    
+    constructor(name, id) {
+        this.id = id
+        this.name = name
     }
 
-    getAcceptableAnswer(input) {
-        return this.acceptableAnswers.find(answer => answer.toLowerCase() === input.toLowerCase())
+    greet() { console.log(this.name) }
+}
 
-        // for(let i = 0; i < this.acceptableAnswers.length; i++) {
-        //     const answer = this.acceptableAnswers[i]
-        //     if(answer.toLowerCase() === input.toLowerCase()) {
-        //         return answer
-        //     }
-        // }
+const user = new User("fdsfds", )
 
-        // for (const answer of this.acceptableAnswers) {
-        //     this.acceptableAnswers.push("fdsfds")
-        //     if (answer.toLowerCase() === input.toLowerCase()) {
-        //         return answer
-        //     }
-        // }
+const user2 = { id: 0, name: "Natalie "}
 
-        //return undefined
-    }
 
-    prompt(question) {
-        let answer = prompt(question)
-        let acceptedAnswer = this.getAcceptableAnswer(answer)
-        while (!acceptedAnswer) {
-            answer = prompt(question + "\nPick one of these options: " + this.acceptableAnswers.join(", "))
-            acceptedAnswer = this.getAcceptableAnswer(answer)
-        }
-        return acceptedAnswer
+// pretend we're in a war class somewhere
+
+class Player {
+    constructor(name) {
+        this.name = name
+        this.score = 0
     }
 }
 
-// function promptRestricted(question, acceptableAnswers) {
+class Game {
+    constructor() {
 
-//     function getAcceptableAnswer(input) {
-//         return acceptableAnswers.find(answer => answer.toLowerCase() === input.toLowerCase())
-//     }
+    }
 
-//     let answer = prompt(question)
-//     let acceptedAnswer = getAcceptableAnswer(answer)
-//     while (!acceptedAnswer) {
-//         answer = prompt(question + "\nPick one of these options: " + acceptableAnswers.join(", "))
-//         acceptedAnswer = getAcceptableAnswer(answer)
-//     }
-//     return acceptedAnswer
-// }
+    start() {
+        // makes the deck
+        let name1 = prompt('Enter name for the first player:');
+        const player1 = new Player(name1) // { name: name1, score: 0 }
+        let name2 = prompt('Enter name for the second player:');
+        const player2 = new Player(name2)
 
 
-// const yesNoPrompt = new RestrictedAnswerPrompt(["Yes", "No"])
-// const shouldDelete = yesNoPrompt.prompt("Are you sure you want to delete?")
-// const toGo = yesNoPrompt.prompt("Do you want that to go?")
-// if (shouldDelete === "Yes") {
-//     alert("Deleted!")
-// }
-
-const toGo = promptRestricted("Are you sure you want to delete?", ["Yes", "No"])
-const shouldDelete = promptRestricted("Are you sure you want to delete?", ["Yes", "No"])
-
-
-const animalPrompt = new RestrictedAnswerPrompt(["DOG", "cat", "horse"])
-const favoriteAnimal = animalPrompt.prompt("What's your favorite animal?")
-
-
-const menuPrompt = new RestrictedAnswerPrompt(["1", "2", "3", "4"])
+        
+        console.log( player1.name + " won!")
+    }
+}
 
 
 
 
+// this.totalRunTime.seconds = 63
+// this.totalRunTime.minutes = 6
 
+if(this.totalRunTime.seconds >= 60) {
+    this.totalRunTime.minutes += Math.floor(this.totalRunTime.seconds / 60)
+    this.totalRunTime.second %= 60 
+}
 
-// try { 
-//     // talk across the internet
-// } catch (error) {
-//     alert("We're having problems connecting. We'll try again in 3 seconds")
-//     // try again in 3 seconds
-// }
-
-// // okay then do other things
+// this.totalRunTime.seconds = 3
+// this.totalRunTime.minutes = 7
