@@ -1,57 +1,91 @@
 
-
-class User {
-    
-    constructor(name, id) {
-        this.id = id
-        this.name = name
+class Animal {
+    constructor(name, type) { // name = "Floofy", type = "cat"
+        this.name = name,
+        this.type = type
     }
 
-    greet() { console.log(this.name) }
-}
-
-const user = new User("fdsfds", )
-
-const user2 = { id: 0, name: "Natalie "}
-
-
-// pretend we're in a war class somewhere
-
-class Player {
-    constructor(name) {
-        this.name = name
-        this.score = 0
+    petAnimal() { 
+        alert("I've been petted")
     }
 }
 
-class Game {
-    constructor() {
+console.log("With a class")
+console.log(new Animal("Floofy", "cat")) // { name: "Floofy", type: "cat", petAnimal() { alert("I've been petted")} } }
+console.log(new Animal("Spot", "dog")) // { name: "Floofy", type: "cat", petAnimal() { alert("I've been petted")} } }
+console.log("Without a class")
+console.log({ name: "Floofy", type: "cat", petAnimal() { alert("I've been petted")} })
+console.log({ name: "Spot", type: "dog", petAnimal() { alert("I've been petted")} })
 
+// Commenting/uncommenting out multiple lines at once: Ctrl + /
+
+
+
+// Looping over an array of objects
+
+const animals = [
+    {
+        id: 0,
+        name: "Floofy",
+        type: "cat",
+        age: 3
+    },
+    {
+        id: 1,
+        name: "Spot",
+        type: "dog",
+        age: 6
+    },
+    {
+        id: 2,
+        name: "Lulu",
+        type: "bird",
+        age: 10
     }
+]
 
-    start() {
-        // makes the deck
-        let name1 = prompt('Enter name for the first player:');
-        const player1 = new Player(name1) // { name: name1, score: 0 }
-        let name2 = prompt('Enter name for the second player:');
-        const player2 = new Player(name2)
+// Calculate the total age of all the animals
+let totalAge = 0
+
+for(let i = 0; i < animals.length; i++) { // i = 3, totalAge = 19
+    totalAge += animals[i].age // RIGHT
+}
+
+console.log("Total age is " + totalAge)
 
 
-        
-        console.log( player1.name + " won!")
-    }
+
+const lulu = {
+    id: 2,
+    name: "Lulu",
+    type: "bird",
+    age: 10
+}
+
+for(let i = 0; i < lulu.length; i++) {
+    // never going to run
 }
 
 
+// Looping over an array of objects that's in a property players that's in a Team object that's in a property selectedTeam that's in a Menu object
 
 
-// this.totalRunTime.seconds = 63
-// this.totalRunTime.minutes = 6
+// Inside the viewTeam method
+// These all do the exact same thing
 
-if(this.totalRunTime.seconds >= 60) {
-    this.totalRunTime.minutes += Math.floor(this.totalRunTime.seconds / 60)
-    this.totalRunTime.second %= 60 
-}
+// this.selectedTeam.players.forEach((player, i) => {
+//     description += i + ') ' + player.describe() + '\n';
+// })
 
-// this.totalRunTime.seconds = 3
-// this.totalRunTime.minutes = 7
+// for(let i = 0; i < this.selectedTeam.players.length; i++) {
+//     description += i + ') ' + this.selectedTeam.players[i].describe() + '\n';
+// }
+
+// for(let i = 0; i < this.selectedTeam.players.length; i++) {
+//     const player = this.selectedTeam.players[i]
+//     description += i + ') ' + player.describe() + '\n';
+// }
+
+// for(const player of this.selectedTeam.players) {
+//     description += i + ') ' + player.describe() + '\n';
+// }
