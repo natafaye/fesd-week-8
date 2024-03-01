@@ -1,21 +1,34 @@
-// OOP - other languages exclusively
-class User {
-    constructor(name) {
-        this.name = name
+
+// object made by hand
+
+
+// OOP
+// other languages they're always doing this
+// classes = blueprints (stamp) for objects
+class Email {
+    constructor(text) {
+        this.id = 0
+        this.text = text // this is super common but looks weird
+        this.read = false
     }
 
-    greet() {
-        alert("Hello " + this.name + "!")
+    markEmailRead() {
+        this.read = true
+    }
+}
+
+// OOP
+const email1 = new Email("frdsfdsfsd") // calls the constructor of Email
+
+// tends to be what we do in Javascript
+const email2 = {
+    id: 0,
+    text: "frdsfdsfsd",
+    read: false,
+    markEmailRead() {
+        this.read = true
     }
 }
 
-const abigail = new User("Abigail")
-
-
-// Much more in common Front-End Javascript
-const abigail2 = {
-    name: "Abigail",
-    greet: function() {
-        alert("Hello " + this.name + "!")
-    }
-}
+console.log("email1", email1)
+console.log("email2", email2)
