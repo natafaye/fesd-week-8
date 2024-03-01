@@ -16,7 +16,7 @@ class Team {
     }
 
     addPlayer = (player) => {
-        if(player instanceof Player) {
+        if (player instanceof Player) {
             this.players.push(player);
         } else {
             throw new Error('You can only add an instance of a Player.')
@@ -36,9 +36,9 @@ class Menu {
 
     start = () => {
         let selection = null;
-        while(selection !== 0) {
+        while (selection !== 0) {
             selection = this.showMainMenuOptions();
-            switch(selection) {
+            switch (selection) {
                 case '1':
                     this.createTeam();
                     break;
@@ -81,7 +81,7 @@ class Menu {
     displayTeams = () => {
         let teamString = '';
         this.teams.forEach((team, index) => {
-            teamString += index + ') ' + team.describe() + "Players:\n         " + team.players.map( player => player.describe() ).join("\n        ") +'\n';
+            teamString += index + ') ' + team.describe() + "Players:\n         " + team.players.map(player => player.describe()).join("\n        ") + '\n';
         })
         alert(teamString);
     }
@@ -101,7 +101,7 @@ class Menu {
             })
 
             let selection = this.showTeamMenuOptions(description);
-            switch(selection) {
+            switch (selection) {
                 case '1':
                     this.createPlayer();
                     break;
@@ -134,4 +134,4 @@ class Menu {
 }
 
 let menu = new Menu();
-menu.start(); // WAITING
+menu.start();
