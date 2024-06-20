@@ -1,34 +1,53 @@
+// class constructor and how that works
 
-// object made by hand
-
-
-// OOP
-// other languages they're always doing this
-// classes = blueprints (stamp) for objects
-class Email {
-    constructor(text) {
-        this.id = 0
-        this.text = text // this is super common but looks weird
-        this.read = false
-    }
-
-    markEmailRead() {
-        this.read = true
+// class = object stamp / blueprint
+class User {
+    // helps with the stamping / creating of the object
+    constructor(id, username, amIAdmin) {
+        // really common to set up the properties here
+        this.id = id;
+        this.username = username;
+        this.isAdmin = amIAdmin;
     }
 }
 
-// OOP
-const email1 = new Email("frdsfdsfsd") // calls the constructor of Email
+// use the stamp (class) to make an object
+// calls the constructor
+let myUser = new User(0, "hello", false)
+console.log(myUser);
 
-// tends to be what we do in Javascript
-const email2 = {
-    id: 0,
-    text: "frdsfdsfsd",
-    read: false,
-    markEmailRead() {
-        this.read = true
+console.log(
+    {
+        id: 0,
+        username: "hello",
+        isAdmin: false,
     }
-}
+);
+console.log(new User(1, "natalie", true));
 
-console.log("email1", email1)
-console.log("email2", email2)
+// More common in Javascript
+// Making by hand
+let users = [
+    {
+        id: 0,
+        username: "abby324",
+        isAdmin: false,
+    },
+    {
+        id: 1,
+        username: "mcp23",
+        isAdmin: true,
+    },
+    {
+        id: 3,
+        username: "derek55",
+        isAdmin: false,
+    },
+];
+
+// Use the class
+let users2 = [
+    new User(0, "abby324", false),
+    new User(1, "mcp23", true),
+    new User(3, "derek55", false),
+];
