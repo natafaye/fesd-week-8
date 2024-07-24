@@ -1,53 +1,43 @@
-// class constructor and how that works
 
-// class = object stamp / blueprint
+
+// Stamp for an object
+// super class
 class User {
-    // helps with the stamping / creating of the object
-    constructor(id, username, amIAdmin) {
-        // really common to set up the properties here
-        this.id = id;
-        this.username = username;
-        this.isAdmin = amIAdmin;
+    constructor(name, roleValue) {
+        this.name = name
+        this.role = roleValue
+
+        // whatever code you want in here
+        // whatever you need to do to get the object set up
     }
 }
 
-// use the stamp (class) to make an object
-// calls the constructor
-let myUser = new User(0, "hello", false)
-console.log(myUser);
+// another blueprint/stamp
+class Teacher extends User { // subclass of user -> more specialized version
+    constructor(name) {
+        super(name, "teacher") // call the constructor of your extending class
+        // super() -> the constructor of the extends class is being called
 
-console.log(
-    {
-        id: 0,
-        username: "hello",
-        isAdmin: false,
+        // whatever you want here
+        this.subject = "programming"
     }
-);
-console.log(new User(1, "natalie", true));
+}
 
-// More common in Javascript
-// Making by hand
-let users = [
-    {
-        id: 0,
-        username: "abby324",
-        isAdmin: false,
-    },
-    {
-        id: 1,
-        username: "mcp23",
-        isAdmin: true,
-    },
-    {
-        id: 3,
-        username: "derek55",
-        isAdmin: false,
-    },
-];
+// stamp it out
+const user1 = new Teacher("Natalie")
+const user3 = new User("David", "student")
 
-// Use the class
-let users2 = [
-    new User(0, "abby324", false),
-    new User(1, "mcp23", true),
-    new User(3, "derek55", false),
-];
+// new SomeName() that equals constructor
+
+// make it by hand
+const user2 = {
+    name: "Natalie",
+    role: "teacher"
+}
+const user4 = {
+    name: "Robert",
+    role: "student"
+}
+
+console.log(user1)
+console.log(user2)
