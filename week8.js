@@ -1,43 +1,58 @@
+// shape (or structure) = the property names and types and methods on an object
 
+// class allows us to stamp out objects with the same shape
+// In Javascript, classes do not constrain the object after the object is made
+class Email {
+    constructor(authorName) { // let authorName = "Natalie"
+        // You can do whatever you want in here
+        // It's just a function
+        // What we pretty much always do is set up some properties
+        this.author = authorName
+        this.read = false
 
-// Stamp for an object
-// super class
-class User {
-    constructor(name, roleValue) {
-        this.name = name
-        this.role = roleValue
-
-        // whatever code you want in here
-        // whatever you need to do to get the object set up
+        // "this" means the object we are currently working with (one we're constructing)
     }
 }
 
-// another blueprint/stamp
-class Teacher extends User { // subclass of user -> more specialized version
-    constructor(name) {
-        super(name, "teacher") // call the constructor of your extending class
-        // super() -> the constructor of the extends class is being called
+// {
+//     author: "Natalie",
+//     read: false
+// }
 
-        // whatever you want here
-        this.subject = "programming"
-    }
+// OOP = what if we put all the functions in an object somewhere
+// let's make every function a method
+
+// if you see "new" it's calling a constructor
+
+const specialEmail = new Email("Natalie")
+// does the same thing:
+// const specialEmail = {
+//     author: "Natalie",
+//     read: false
+// }
+
+
+const favoriteRestaurant = {
+    id: 0,
+    name: "Del Taco"
 }
 
-// stamp it out
-const user1 = new Teacher("Natalie")
-const user3 = new User("David", "student")
+const recommendedRestaurant = favoriteRestaurant
 
-// new SomeName() that equals constructor
 
-// make it by hand
-const user2 = {
-    name: "Natalie",
-    role: "teacher"
-}
-const user4 = {
-    name: "Robert",
-    role: "student"
-}
+// Passed by value = can't be in two variables at once, just copied into another variable
+// Strings, booleans, numbers
 
-console.log(user1)
-console.log(user2)
+// 1 IS EQUAL 1
+
+// Passed by reference = not really "in" the variable, it's just pointed to by the variable, so multiple variables can point to the same object or array
+// Arrays, objects
+
+// [1, 3] NOT EQUAL [1, 3] if they were made separately
+
+
+// const listOfTeams = ""
+// for (let i = 0; i < this.teams.length; i++) {
+//     listOfTeams += this.teams[i].describe() + "\n"
+// }
+// alert(listOfTeams)
