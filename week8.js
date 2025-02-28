@@ -1,58 +1,94 @@
-// shape (or structure) = the property names and types and methods on an object
 
-// class allows us to stamp out objects with the same shape
-// In Javascript, classes do not constrain the object after the object is made
+// Class is like a stamp for an object
 class Email {
-    constructor(authorName) { // let authorName = "Natalie"
-        // You can do whatever you want in here
-        // It's just a function
-        // What we pretty much always do is set up some properties
-        this.author = authorName
+    // constructor is a magic word, this has to be called that
+    constructor(banana, text) { // let banana = "Natalie"; let text = "Hey there!"
+        // inside the constructor we set up any properties
+        // FYI: "this" is a little buggy in Javascript
+        // "this" = whatever object I'm currently inside of
+        // we can only use "this" inside a method
+        this.author = banana
+        this.text = text
         this.read = false
+        // this.doSomething = function() {
+        //     alert("Something!")
+        // }
+    }
 
-        // "this" means the object we are currently working with (one we're constructing)
+    // This will just put this function in a property called doSomething (so it'll be a method)
+    markAsRead() {
+        this.read = true
     }
 }
 
-// {
-//     author: "Natalie",
-//     read: false
-// }
+// method = a function that's in a property on an object
 
-// OOP = what if we put all the functions in an object somewhere
-// let's make every function a method
-
-// if you see "new" it's calling a constructor
-
-const specialEmail = new Email("Natalie")
-// does the same thing:
-// const specialEmail = {
-//     author: "Natalie",
-//     read: false
-// }
-
-
-const favoriteRestaurant = {
-    id: 0,
-    name: "Del Taco"
+// the word new means we're going to call a constructor function
+const email1 = new Email("Natalie", "Hey there!")
+const email2 = { 
+    author: "Natalie", 
+    text: "Hey there!", 
+    read: false, 
+    markAsRead: function() {
+        this.read = true
+    }
 }
 
-const recommendedRestaurant = favoriteRestaurant
+console.log(email1)
+console.log(email2)
 
 
-// Passed by value = can't be in two variables at once, just copied into another variable
-// Strings, booleans, numbers
+// Simple Data Types
+// boolean, string, number
+// actually go in the variable
+// passed around by copying them ("by value")
+// picture on your phone "passed by value"
 
-// 1 IS EQUAL 1
+let number = 3
+let specialNumber = number
+number++
+specialNumber += 5
 
-// Passed by reference = not really "in" the variable, it's just pointed to by the variable, so multiple variables can point to the same object or array
-// Arrays, objects
+console.log(number) // 4
+console.log(specialNumber) // 8
 
-// [1, 3] NOT EQUAL [1, 3] if they were made separately
+// Complex Data Types
+// object, array
+// only pointed to by the variable
+// passed around by giving the address or pointer to the thing ("by reference")
+// restaurant "passed by reference"
+
+let mom = { name: "Natalie", age: 33 } // sets mom to a pointer to that object I just made
+let teacher = mom // sets teacher to point to the same object that mom is pointing to
+
+teacher.age = 34
+
+console.log(mom) // { name: "Natalie", age: 34 }
+console.log(teacher) // { name: "Natalie", age: 34 }
+
+// Be careful checking equality with objects and arrays
+// { id: 0 } === { id: 0 } this is false
+// [0, 1, 2] === [0, 1, 2] this is false
+
+// CLASSES DON'T EXIST (generally speaking)
+// you can't do something with the class
+// classes don't have methods, they don't have properties (generally speaking)
+// you can't eat the recipe, you have to use it to make food, then eat that
 
 
-// const listOfTeams = ""
-// for (let i = 0; i < this.teams.length; i++) {
-//     listOfTeams += this.teams[i].describe() + "\n"
-// }
-// alert(listOfTeams)
+
+const menu = {
+    teams: [
+        {
+            name: "Lakers",
+            players: [
+                {
+                    name: "Mia",
+                    position: "defense"
+                }
+            ]
+        }
+    ]
+}
+
+menu.teams[0].players[0].name // "Mia"

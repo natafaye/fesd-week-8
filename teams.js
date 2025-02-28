@@ -35,15 +35,15 @@ class Menu {
     }
 
     start = () => {
-        let selection = null;
+        let selection = null; // "2"
         while (selection !== 0) {
-            selection = this.showMainMenuOptions();
+            selection = this.showMainMenuOptions(); // WAIT
             switch (selection) {
                 case '1':
                     this.createTeam();
                     break;
                 case '2':
-                    this.viewTeam();
+                    this.viewTeam(); // WAIT
                     break;
                 case '3':
                     this.deleteTeam();
@@ -92,7 +92,7 @@ class Menu {
     }
 
     viewTeam = () => {
-        let index = prompt('Enter the index of the team you wish to view:');
+        let index = prompt('Enter the index of the team you wish to view:'); // 0
         if (index > -1 && index < this.teams.length) {
             this.selectedTeam = this.teams[index];
             let description = 'Team Name: ' + this.selectedTeam.name + '\n';
@@ -100,10 +100,10 @@ class Menu {
                 description += i + ') ' + player.describe() + '\n';
             })
 
-            let selection = this.showTeamMenuOptions(description);
+            let selection = this.showTeamMenuOptions(description); // "1"
             switch (selection) {
                 case '1':
-                    this.createPlayer();
+                    this.createPlayer(); // WAIT
                     break;
                 case '2':
                     this.deletePlayer();
@@ -120,9 +120,9 @@ class Menu {
     }
 
     createPlayer() {
-        let name = prompt('Enter name for new player:');
-        let position = prompt('Enter position for new player:');
-        this.selectedTeam.players.push(new Player(name, position));
+        let name = prompt('Enter name for new player:'); // "Mia"
+        let position = prompt('Enter position for new player:'); // "defense"
+        this.selectedTeam.players.push(new Player(name, position)); // WAIT
     }
 
     deletePlayer() {
@@ -134,4 +134,4 @@ class Menu {
 }
 
 let menu = new Menu();
-menu.start();
+menu.start(); // WAIT
