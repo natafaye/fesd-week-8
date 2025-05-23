@@ -1,46 +1,26 @@
-// flights
 
-class Flight {
-    constructor(airline, toCity) {
-        this.airline = airline
-        this.toCity = toCity
-    }
-}
-
-class FlightMenu {
+class Menu {
     constructor() {
-        // set up some overall data for the app
-        this.flights = []
+        this.books = []
     }
 
     start() {
-        while (true) { // I can do while true here because I have a return inside that will end the loop
-            // some way to allow the user to choose what they want to do
-            const selection = prompt("What do you want to do? 1 for create, 2 for delete, 3 for view, 4 for exit")
-            if (selection === "1") {
-                const airline = prompt("What's the airline?")
-                const toCity = prompt("What city is it flying to?")
-                const newFlight = new Flight(airline, toCity)
-                this.flights.push(newFlight)
-            } else if (selection === "2") {
-                // delete
-            } else if (selection === "3") {
-                // view
-            } else {
-                // they probably want to exit
-                alert("Goodbye!")
-                return // this will exit the loop (and the whole function)
+        let selection = null
+        while(selection !== "EXIT") {
+            selection = prompt("What do you want to do? EXIT or ADD or VIEW")
+            if(selection === "ADD") {
+                // Add a book
+                const bookName = prompt("What's the name of the book?")
+                const books = { name: bookName }
+                this.books.push(books)
+            } else if(selection === "VIEW") {
+                // view all the books
+                alert("Here are all the books: " + this.books.map(book => book.name))
             }
         }
+        alert("Goodbye!")
     }
-
-    // createFlight() {
-    //     const airline = prompt("What's the airline?")
-    //     const toCity = prompt("What city is it flying to?")
-    //     const newFlight = new Flight(airline, toCity)
-    //     this.flights.push(newFlight)
-    // }
 }
 
-const flightMenu = new FlightMenu()
-flightMenu.start()
+const menu = new Menu()
+menu.start()

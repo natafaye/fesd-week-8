@@ -1,47 +1,78 @@
-// Blueprint for an object
-class User {
-    constructor(name, isAdmin) {
-        // sets up the properties on the newly made object
-        this.id = Math.floor(Math.random() * 1000) // get a random number for the id
-        this.name = name // set the property to whatever the parameter was set to
-        this.isAdmin = isAdmin
+
+// Class is a blueprint/recipe for making objects
+// Method is a function attached to an object
+// Method is a function that's in a property
+
+class Something {
+
+    // constructor is a function for putting properties on a new object
+    constructor() {
+        this.color = "blue"
+    }
+
+    sayHi() {
+        alert("hi!")
     }
 }
 
+// "new" says to stamp out a new object using that class as the blueprint
+const myObject1 = new Something()
 
-// We can make an object by hand
-const natalie1 = {
-    id: 0,
-    name: "Natalie",
-    isAdmin: true
+const myObject2 = {
+    color: "blue",
+
+    // this is a method
+    sayHi: function() {
+        alert("hi!")
+    }
 }
-const natalie3 = {
-    id: 1,
-    name: "Michele",
-    isAdmin: true
-}
 
-// We can stamp it out with a constructor
-// new ClassName = constructor
-const natalie2 = new User("Natalie", true)
-const natalie4 = new User("Michele", true)
+// Same object made 2 different ways
+console.log(myObject1)
+console.log(myObject2)
 
-console.log(natalie1, natalie2)
+// Object Oriented Programming: MAKE IT ALL METHODS!!!!
 
 
-// method = a property set to a function
+// Why objects? 
+// Convenient to group information (and possibly functions)
 
 
-const menu = {
-    teams: [
-        {
-            name: "Lakers",
-            players: [
-                {
-                    name: "Mia",
-                    position: "defense"
-                }
-            ]
-        }
-    ]
-}
+// Why classes?
+// In Javascript there's not a strong reason to use them, but it can make sense
+// In modern React-y (we'll learn React at the end of the course) Javascript we don't use classes
+
+
+// Passed by Reference
+// Arrays and objects passed by reference
+// Does NOT make a copy if you set a new variable to it
+
+const myFavoriteColors = ["green", "red", "blue"] // myFavoriteColors points to this array I just made
+const daughterFavoriteColors = myFavoriteColors // daughterFavoriteColors points to the same array from line 47
+
+myFavoriteColors.push("purple")
+
+console.log(myFavoriteColors) // "green", "red", "blue", "purple"
+console.log(daughterFavoriteColors) // "green", "red", "blue", "purple"
+
+// Strings, booleans, numbers passed by value
+// Sent to new variables as a copy
+
+const myAge = 30
+const myHusbandsAge = myAge // copies the number 30 into myHusbandsAge
+
+myAge++
+
+console.log(myAge) // 31
+console.log(myHusbandsAge) // 30
+
+
+
+// "this" in programming means wherever you are right now
+// the object you are currently inside of or connected to
+
+// the word "new" means constructor
+// the constructor returns the newly created object
+
+
+// Generally speaking classes don't "exist"
